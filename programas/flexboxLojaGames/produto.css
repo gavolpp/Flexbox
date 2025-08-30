@@ -1,0 +1,104 @@
+/* Estilos base (Mobile First) */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.detalhes-container {
+  display: flex;
+  flex-direction: column; /* Colunas por padrão no mobile */
+  gap: 20px;
+  padding: 20px;
+}
+
+.imagem-jogo img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-jogo,
+.compra-jogo {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 15px;
+}
+
+.info-jogo {
+  order: 1; /* O .info-jogo aparece por último */
+}
+
+.compra-jogo {
+  order: 0; /* O .compra-jogo aparece antes do .info-jogo */
+}
+
+.btn-comprar, .btn-carrinho {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-comprar {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-carrinho {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Media Query para Tablets (≥768px) */
+@media (min-width: 768px) {
+  .detalhes-container {
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    flex-direction: row; /* Itens alinhados em linha */
+  }
+
+  .imagem-jogo {
+    flex-basis: 100%; /* Imagem ocupa 100% da largura no topo */
+  }
+
+  .info-jogo,
+  .compra-jogo {
+    order: 0; /* Retornam à ordem natural no código-fonte */
+  }
+
+  .info-jogo {
+    flex-grow: 1; /* Permite que o info-jogo ocupe o espaço restante */
+  }
+
+  .compra-jogo {
+    width: 300px; /* Largura fixa para a caixa de compra */
+    gap: 15px;
+  }
+}
+
+/* Media Query para Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .detalhes-container {
+    flex-wrap: nowrap;
+  }
+
+  .imagem-jogo {
+    flex-grow: 2; /* A imagem irá crescer mais que a caixa de informações */
+    flex-basis: auto; /* Permite que o flex-grow funcione */
+  }
+
+  .info-jogo {
+    flex-grow: 1; /* A caixa de informações cresce para ocupar o espaço restante */
+  }
+
+  .compra-jogo {
+    width: 350px;
+    gap: 15px;
+  }
+}

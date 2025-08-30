@@ -1,0 +1,180 @@
+/* Estilos Globais e Mobile First */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Seção de Destaques (Mobile) */
+
+.destaques-secundarios {
+    display: none; /* Escondido em telas pequenas (requisito) */
+}
+
+.destaque-principal img {
+    border-radius: 8px;
+}
+
+/* Galeria de Jogos (Mobile) */
+
+.galeria-jogos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Card de Jogo (Mobile) */
+
+.card-jogo {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+}
+
+.card-jogo img {
+    width: 100%;
+    height: auto;
+}
+
+.info-card {
+    padding: 15px;
+}
+
+.descricao {
+    display: none; /* Escondido em telas pequenas (requisito) */
+}
+
+.botoes-card {
+    display: flex;
+    flex-direction: column; /* Botões um abaixo do outro (requisito) */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-comprar, .btn-carrinho {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-comprar {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-carrinho {
+    background-color: #3498db;
+    color: white;
+}
+
+/*
+--- Media Queries ---
+*/
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+    /* Galeria de Jogos */
+    .galeria-jogos {
+        justify-content: space-between; /* Melhor espaçamento */
+    }
+
+    /* Card de Jogo (Tablet) */
+    .card-jogo {
+        width: calc(50% - 10px); /* 2 itens por linha */
+        display: flex; /* Card se torna um container flex (requisito) */
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .card-jogo img {
+        width: 40%; /* Imagem menor no card */
+        flex-shrink: 0;
+    }
+
+    .info-card {
+        display: flex;
+        flex-direction: column; /* Info-card se torna flex (requisito) */
+        flex-grow: 1;
+        padding: 15px;
+    }
+
+    .descricao {
+        display: block; /* A descrição reaparece (requisito) */
+        flex-grow: 1; /* Empurra os botões para baixo (requisito) */
+        font-size: 0.9em;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    .botoes-card {
+        flex-direction: row; /* Botões lado a lado (requisito) */
+        justify-content: space-between;
+    }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+    /* Seção de Destaques */
+    .destaques {
+        display: flex; /* Destaques se torna um container flex (requisito) */
+        gap: 20px;
+    }
+
+    .destaque-principal {
+        flex-grow: 1; /* Ocupa o espaço disponível (requisito) */
+    }
+
+    .destaques-secundarios {
+        display: flex; /* Destaques secundários reaparecem (requisito) */
+        flex-direction: column; /* Um abaixo do outro (requisito) */
+        gap: 20px;
+        flex-basis: 300px; /* Tamanho base para a seção (requisito) */
+        flex-shrink: 0;
+    }
+
+    .destaque-secundario img {
+        border-radius: 8px;
+    }
+
+    /* Galeria de Jogos */
+    .galeria-jogos {
+        justify-content: flex-start; /* Alinha à esquerda */
+    }
+    
+    .card-jogo {
+        width: calc(33.333% - 14px); /* 3 itens por linha */
+    }
+}
